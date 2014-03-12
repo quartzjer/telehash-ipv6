@@ -22,6 +22,7 @@ exports.install = function(self, args)
   });
 
   var networkIP = "";
+  self.wait(true);
   server.bind(args.port, "::0", function(err){
     // regularly update w/ local ip address changes
     function interfaces()
@@ -39,7 +40,7 @@ exports.install = function(self, args)
       setTimeout(interfaces,10000);
     }
     interfaces();
-
+    self.wait(false);
   });
 }
 
