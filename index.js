@@ -12,8 +12,10 @@ exports.install = function(self, args)
 
   var server = dgram.createSocket("udp6", msgs);
   server.on("error", function(err){
-    console.log("error from the UDP socket",err);
-    process.exit(1);
+    console.log("error from the UDP6 socket, dropping IPv6 support",err);
+    self.deliver("ipv6",false);
+    delete self.paths.pub6;
+    delete self.paths.lan6;
   });
 
   self.deliver("ipv6",function(to,msg){
