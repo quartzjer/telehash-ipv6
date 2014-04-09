@@ -1,6 +1,6 @@
 {
   "name": "telehash-ipv6",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Network bindings for telehash to ipv6 udp",
   "main": "index.js",
   "dependencies": {
